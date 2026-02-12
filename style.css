@@ -208,7 +208,8 @@ nav ul li a {
 }
 
 .logo-circle-dark {
-    background-color: #000;
+    content: url('mv-logo-main.png');
+    /*background-color: #000;
     color: #ffcc00;
     font-weight: 800;
     font-size: 20px;
@@ -218,7 +219,7 @@ nav ul li a {
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    font-style: italic;
+    font-style: italic;*/
 }
 
 .text-logo strong {
