@@ -209,6 +209,7 @@ nav ul li a {
 
 .logo-circle-dark {
     content: url('mv-logo-bw.png');
+    display:block;
     /*background-color: #000;
     color: #ffcc00;
     font-weight: 800;
