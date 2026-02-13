@@ -85,18 +85,6 @@ nav ul li a.active {
     font-size: 14px;
 }
 
-/* Titles */
-.section-title {
-    font-size: 32px;
-    margin: 60px 0 30px;
-    font-weight: 400;
-    letter-spacing: 2px;
-}
-
-.section-title strong {
-    font-weight: 800;
-}
-
 /* About Us Section */
 .about-grid {
     display: grid;
