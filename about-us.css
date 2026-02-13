@@ -118,7 +118,6 @@ nav ul li a.active {
 
 .about-visual {
     text-align: center;
-    display:grid;
 }
 
 .smartboard-image img {
@@ -133,7 +132,7 @@ nav ul li a.active {
     border-radius: 12px;
     font-weight: 700;
     font-size: 1.2rem;
-    margin-top: 40px;
+    margin-top: 10px;
     position: relative;
     z-index: 5;
     text-align: left;
