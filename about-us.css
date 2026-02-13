@@ -118,7 +118,7 @@ nav ul li a.active {
 
 .about-visual {
     text-align: center;
-    display:flex;
+    display:grid;
 }
 
 .smartboard-image img {
