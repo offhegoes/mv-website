@@ -33,7 +33,7 @@ header {
     align-items: center;
 }
 
-.logo-circle {
+/*.logo-circle {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -45,7 +45,7 @@ header {
     font-weight: 800;
     font-style: italic;
     border-radius: 50%;
-}
+}*/
 
 nav ul {
     display: flex;
