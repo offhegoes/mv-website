@@ -23,6 +23,8 @@ header {
     background-color: #004b93;
     padding: 15px 0;
     color: #fff;
+
+    position: sticky;
 }
 
 .nav-container {
