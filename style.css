@@ -329,3 +329,93 @@ footer {
     .hero { height: auto; padding: 150px 0 50px 0; }
     .footer-content { flex-direction: column; gap: 40px; }
 }
+
+/* START: Form CSS */
+        body { font-family: 'Inter', sans-serif; background-color: #f4f4f4; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+
+        /* Trigger Button */
+        .open-btn {
+            background-color: #eebc1d;
+            color: #000;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        .open-btn:hover { background-color: #d4a717; }
+
+        /* Modal Background Overlay */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 75, 147, 0.8); /* Signature Blue Overlay */
+            display: none; /* Hidden by default */
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        /* Modal Box */
+        .modal-content {
+            background: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            width: 100%;
+            max-width: 500px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+
+        .close-modal {
+            position: absolute;
+            top: 15px; right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+        }
+
+        h2 { margin-top: 0; color: #004b93; font-weight: 800; }
+        p.desc { color: #666; font-size: 14px; margin-bottom: 25px; }
+
+        /* Form Styling */
+        .form-group { margin-bottom: 15px; }
+        label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 5px; color: #333; }
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: inherit;
+            box-sizing: border-box;
+        }
+        input:focus, textarea:focus { border-color: #004b93; outline: none; }
+
+        .submit-btn {
+            width: 100%;
+            background-color: #004b93;
+            color: white;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .submit-btn:hover { background-color: #00366a; }
+
+        /* Success Message Styling */
+        #thank-you-note {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+        #thank-you-note h3 { color: #004b93; font-size: 24px; }
+        #thank-you-note .icon { font-size: 50px; color: #eebc1d; margin-bottom: 15px; }
+    /* END: Form Submission.*/
