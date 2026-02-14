@@ -19,11 +19,12 @@ body {
 }
 
 /* Header */
-/*header {
+header {
     background-color: #004b93; /* Dark Blue from mockup */
     padding: 15px 0;
+    display:relative;
     color: #fff;
-}*/
+}
 
 .nav-container {
     display: flex;
