@@ -22,7 +22,7 @@ body {
 header {
     background-color: #004b93; /* Dark Blue from mockup */
     padding: 15px 0;
-    display:relative;
+    position: sticky;
     color: #fff;
 }
 
