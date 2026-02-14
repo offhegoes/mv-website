@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Micro Venture</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f4f4f4; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+
+        /* Trigger Button */
+        .open-btn {
+            background-color: #eebc1d;
+            color: #000;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        .open-btn:hover { background-color: #d4a717; }
+
+        /* Modal Background Overlay */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 75, 147, 0.8); /* Signature Blue Overlay */
+            display: none; /* Hidden by default */
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        /* Modal Box */
+        .modal-content {
+            background: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            width: 100%;
+            max-width: 500px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+
+        .close-modal {
+            position: absolute;
+            top: 15px; right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+        }
+
+        h2 { margin-top: 0; color: #004b93; font-weight: 800; }
+        p.desc { color: #666; font-size: 14px; margin-bottom: 25px; }
+
+        /* Form Styling */
+        .form-group { margin-bottom: 15px; }
+        label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 5px; color: #333; }
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: inherit;
+            box-sizing: border-box;
+        }
+        input:focus, textarea:focus { border-color: #004b93; outline: none; }
+
+        .submit-btn {
+            width: 100%;
+            background-color: #004b93;
+            color: white;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .submit-btn:hover { background-color: #00366a; }
+
+        /* Success Message Styling */
+        #thank-you-note {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+        #thank-you-note h3 { color: #004b93; font-size: 24px; }
+        #thank-you-note .icon { font-size: 50px; color: #eebc1d; margin-bottom: 15px; }
+    </style>
+</head>
+<body>
+
+    <!-- This button would typically be the "Message Us" button in your header -->
+    <button class="open-btn" onclick="toggleModal(true)">Message Us</button>
+
+    <!-- THE POPUP -->
+    <div class="modal-overlay" id="contactModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="toggleModal(false)">&times;</span>
+            
+            <div id="form-container">
+                <h2>Request a Quote</h2>
+                <p class="desc">Please fill in your details and our team will get back to you shortly.</p>
+                
+                <!-- Replace 'your_formspree_id' with your actual Formspree ID -->
+                <form id="contactForm" action="https://formspree.io/f/your_formspree_id" method="POST">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" name="name" placeholder="Enter your name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Organisation Name</label>
+                        <input type="text" name="organisation" placeholder="Company / Institution" required>
+                    </div>
+
+                    <div style="display: flex; gap: 15px;">
+                        <div class="form-group" style="flex: 1;">
+                            <label>Mobile Number</label>
+                            <input type="tel" name="phone" placeholder="e.g. 0123456789" required>
+                        </div>
+                        <div class="form-group" style="flex: 1;">
+                            <label>Email Address</label>
+                            <input type="email" name="email" placeholder="email@example.com" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Request Notes</label>
+                        <textarea name="notes" rows="4" placeholder="How can we help you?"></textarea>
+                    </div>
+
+                    <!-- Hidden fields to help route/identify emails -->
+                    <input type="hidden" name="_subject" value="New Website Inquiry - Micro Venture">
+                    
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+
+            <!-- SUCCESS MESSAGE -->
+            <div id="thank-you-note">
+                <div class="icon">✅</div>
+                <h3>Thank You!</h3>
+                <p>Your request has been successfully submitted. Shukri and Azry will review your message and respond to you as soon as possible.</p>
+                <button class="open-btn" style="margin-top: 20px;" onclick="toggleModal(false)">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('contactModal');
+        const formContainer = document.getElementById('form-container');
+        const thankYouNote = document.getElementById('thank-you-note');
+        const form = document.getElementById('contactForm');
+
+        function toggleModal(show) {
+            modal.style.display = show ? 'flex' : 'none';
+            if (!show) {
+                // Reset form and view when closing
+                form.reset();
+                formContainer.style.display = 'block';
+                thankYouNote.style.display = 'none';
+            }
+        }
+
+        // Handle Form Submission via AJAX to show the Thank You note without refreshing
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+            const data = new FormData(event.target);
+            
+            fetch(event.target.action, {
+                method: form.method,
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            }).then(response => {
+                if (response.ok) {
+                    formContainer.style.display = 'none';
+                    thankYouNote.style.display = 'block';
+                } else {
+                    alert("Oops! There was a problem submitting your form.");
+                }
+            }).catch(error => {
+                alert("Oops! There was a problem connecting to the server.");
+            });
+        });
+
+        // Close modal when clicking outside of the white box
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                toggleModal(false);
+            }
+        }
+    </script>
+</body>
+</html>
